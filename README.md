@@ -102,6 +102,37 @@ Content here...
 
 Automatically deploys on push to `main` via GitHub Actions.
 
+#### Required Repository Configuration
+
+For the GitHub Actions deployment to work, ensure the following settings are configured in your repository:
+
+1. **GitHub Pages Source**
+   - Go to Settings → Pages
+   - Set "Source" to "GitHub Actions"
+   - This allows the workflow to deploy the built artifacts
+
+2. **Branch Protection (Recommended)**
+   - Go to Settings → Branches
+   - Add rule for `main` branch
+   - Require status checks to pass before merging
+   - This ensures only successful builds are merged
+
+3. **Workflow Permissions**
+   - Go to Settings → Actions → General
+   - Set "Workflow permissions" to "Read and write permissions"
+   - This allows the workflow to deploy to Pages
+
+4. **Environment Configuration**
+   - The workflow uses the `github-pages` environment
+   - Deployment URL will be available in workflow run details
+
+#### Deployment Behavior
+
+- **On Push to main**: Automatically builds and deploys docs
+- **Manual Trigger**: Use "Run workflow" in Actions tab to manually deploy
+- **Failure Handling**: Workflow fails explicitly if Pages is not configured (no silent skips)
+- **Build Artifact**: Generated from `documentation/build` directory
+
 ## 🤝 Contributing
 
 We welcome contributions! Here's how:
