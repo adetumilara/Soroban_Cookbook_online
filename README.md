@@ -27,10 +27,10 @@ A user-friendly documentation website for the [Soroban Cookbook](https://github.
 cd documentation
 
 # Install dependencies
-npm install
+bun install
 
 # Start development server
-npm start
+bun start
 ```
 
 Visit `http://localhost:3000` to view the site.
@@ -54,6 +54,7 @@ Soroban_Cookbook_online/
 
 - **Framework**: [Docusaurus 3](https://docusaurus.io/) with TypeScript
 - **Language**: TypeScript + React 19
+- **Package Manager**: [Bun](https://bun.sh/)
 - **Deployment**: Vercel / GitHub Pages
 - **Search**: Algolia DocSearch (planned)
 
@@ -62,11 +63,10 @@ Soroban_Cookbook_online/
 ### Available Scripts
 
 ```bash
-npm start          # Start dev server
-npm run build      # Build for production
-npm run serve      # Serve production build
-npm run sync-content  # Sync from GitHub repo
-npm run typecheck  # Run TypeScript checks
+bun start          # Start dev server
+bun run build      # Build for production
+bun run serve      # Serve production build
+bun run typecheck  # Run TypeScript checks
 ```
 
 ### Adding Content
@@ -101,6 +101,37 @@ Content here...
 ### GitHub Pages
 
 Automatically deploys on push to `main` via GitHub Actions.
+
+#### Required Repository Configuration
+
+For the GitHub Actions deployment to work, ensure the following settings are configured in your repository:
+
+1. **GitHub Pages Source**
+   - Go to Settings → Pages
+   - Set "Source" to "GitHub Actions"
+   - This allows the workflow to deploy the built artifacts
+
+2. **Branch Protection (Recommended)**
+   - Go to Settings → Branches
+   - Add rule for `main` branch
+   - Require status checks to pass before merging
+   - This ensures only successful builds are merged
+
+3. **Workflow Permissions**
+   - Go to Settings → Actions → General
+   - Set "Workflow permissions" to "Read and write permissions"
+   - This allows the workflow to deploy to Pages
+
+4. **Environment Configuration**
+   - The workflow uses the `github-pages` environment
+   - Deployment URL will be available in workflow run details
+
+#### Deployment Behavior
+
+- **On Push to main**: Automatically builds and deploys docs
+- **Manual Trigger**: Use "Run workflow" in Actions tab to manually deploy
+- **Failure Handling**: Workflow fails explicitly if Pages is not configured (no silent skips)
+- **Build Artifact**: Generated from `documentation/build` directory
 
 ## 🤝 Contributing
 

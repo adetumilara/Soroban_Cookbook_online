@@ -47,7 +47,7 @@ export function ThemeToggle({
   darkLabel = 'Dark',
   size = 'medium',
   onThemeChange,
-}: ThemeToggleProps): JSX.Element {
+}: ThemeToggleProps): React.ReactElement {
   const [theme, setTheme] = useState<Theme>('dark');
   const [mounted, setMounted] = useState(false);
 
@@ -114,7 +114,7 @@ export function ThemeToggle({
 
   // Don't render until mounted (prevents hydration mismatch)
   if (!mounted) {
-    return <div className={`${styles.placeholder} ${styles[size]}`} />;
+    return <div className={`${styles.placeholder} ${styles[size]}`} /> as React.ReactElement;
   }
 
   const classNames = [

@@ -1,0 +1,92 @@
+name: Validate Deployment Setup
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/deploy.yml'
+      - 'documentation/**'
+      - 'DEPLOYMENT.md'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Check lockfile exists
+        working-directory: ./documentation
+        run: |
+          if [ ! -f bun.lock ]; then
+            echo "❌ bun.lock not found in documentation/"
+            exit 1
+          fi
+          echo "✅ bun.lock found"
+
+      - name: Install dependencies
+        working-directory: ./documentation
+        run: bun install --frozen-lockfile
+
+      - name: Run TypeScript check
+        working-directory: ./documentation
+        run: bun run typecheck
+
+      - name: Build documentation
+        working-directory: ./documentation
+        run: bun run build
+
+      - name: Verify build artifact
+        run: |
+          if [ ! -d documentation/build ]; then
+            echo "❌ Build directory not found at documentation/build"
+            exit 1
+          fi
+          if [ ! -f documentation/build/index.html ]; then
+            echo "❌ index.html not found in build directory"
+            exit 1
+          fi
+          echo "✅ Build artifact verified"
+          echo "Build size: $(du -sh documentation/build | cut -f1)"
+
+      - name: Validate workflow syntax
+        run: |
+          if ! grep -q "actions/configure-pages" .github/workflows/deploy.yml; then
+            echo "❌ Missing actions/configure-pages in deploy workflow"
+            exit 1
+          fi
+          if ! grep -q "actions/deploy-pages" .github/workflows/deploy.yml; then
+            echo "❌ Missing actions/deploy-pages in deploy workflow"
+            exit 1
+          fi
+          echo "✅ Workflow syntax validated"
+
+      - name: Check for silent skip patterns
+        run: |
+          if grep -q "Skipping GitHub Pages deploy" .github/workflows/deploy.yml; then
+            echo "⚠️  Warning: Found silent skip pattern in workflow"
+          else
+            echo "✅ No silent skip patterns found"
+          fi
+
+      - name: Summary
+        run: |
+          echo "## ✅ Deployment Setup Validation Complete"
+          echo ""
+          echo "### Checks Passed:"
+          echo "- Lockfile present and valid"
+          echo "- Dependencies installable with bun"
+          echo "- TypeScript compilation successful"
+          echo "- Documentation builds successfully"
+          echo "- Build artifact verified"
+          echo "- Workflow syntax valid"
+          echo ""
+          echo "### Next Steps:"
+          echo "1. Ensure GitHub Pages source is set to 'GitHub Actions'"
+          echo "2. Verify workflow permissions are set to 'Read and write'"
+          echo "3. Test deployment on main branch"

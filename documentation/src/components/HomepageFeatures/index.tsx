@@ -1,10 +1,9 @@
 import type { ReactNode } from "react";
-import clsx from "clsx";
+import React from "react";
 import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
 import {
   FeatureCard,
-  GradientCard,
   PatternCard,
   ActionCard,
 } from "@site/src/components/cards";
@@ -23,61 +22,7 @@ import {
   Clock,
   AlertTriangle,
   CheckCircle,
-  ArrowRight,
 } from "lucide-react";
-
-type FeatureItem = {
-  title: string;
-  Svg: React.ComponentType<React.ComponentProps<"svg">>;
-  description: ReactNode;
-};
-
-const FeatureList: FeatureItem[] = [
-  {
-    title: "Easy to Use",
-    Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
-  },
-  {
-    title: "Focus on What Matters",
-    Svg: require("@site/static/img/undraw_docusaurus_tree.svg").default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: "Powered by React",
-    Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
-  },
-];
-
-function Feature({ title, Svg, description }: FeatureItem) {
-  return (
-    <div className={clsx("col col--4")}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // FEATURE CARDS DATA
@@ -259,60 +204,56 @@ function SectionHeader({
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// MAIN EXPORT
+// FEATURE LIST DATA
 // ─────────────────────────────────────────────────────────────────────────────
-import Heading from "@theme/Heading";
-import { FeatureCard } from "@site/src/components/cards";
-import styles from "./styles.module.css";
-
 const FeatureList = [
   {
-    icon: "\u{1F4DC}",
+    icon: <Icon icon={BookOpen} size="lg" ariaLabel="Smart Contracts" />,
     title: "Smart Contracts",
     description:
-      "Build secure, efficient smart contracts on Stellar using Soroban\u2019s Rust-based SDK. Deploy and invoke contracts with confidence.",
+      "Build secure, efficient smart contracts on Stellar using Soroban's Rust-based SDK. Deploy and invoke contracts with confidence.",
     accent: "#6366f1",
-    href: "/getting-started/first-contract",
+    href: "/docs/getting-started/first-contract",
   },
   {
-    icon: "\u26A1",
+    icon: <Icon icon={Zap} size="lg" ariaLabel="Quick Setup" />,
     title: "Quick Setup",
     description:
       "Get up and running in minutes with the Soroban CLI and Rust toolchain. From installation to your first deployment.",
     accent: "#10b981",
-    href: "/getting-started/setup",
+    href: "/docs/getting-started/setup",
   },
   {
-    icon: "\u{1F9E0}",
+    icon: <Icon icon={Code} size="lg" ariaLabel="Core Concepts" />,
     title: "Core Concepts",
     description:
-      "Understand the fundamentals of Soroban \u2014 from contract lifecycle and storage to authentication and cross-contract calls.",
+      "Understand the fundamentals of Soroban — from contract lifecycle and storage to authentication and cross-contract calls.",
     accent: "#8b5cf6",
-    href: "/concepts/overview",
+    href: "/docs/concepts/overview",
   },
   {
-    icon: "\u{1F504}",
+    icon: <Icon icon={Package} size="lg" ariaLabel="Reusable Patterns" />,
     title: "Reusable Patterns",
     description:
       "Leverage battle-tested design patterns for token contracts, access control, upgradability, and more.",
     accent: "#f59e0b",
-    href: "/patterns/overview",
+    href: "/docs/patterns/overview",
   },
   {
-    icon: "\u{1F980}",
+    icon: <Icon icon={Shield} size="lg" ariaLabel="Rust-Powered" />,
     title: "Rust-Powered",
     description:
-      "Harness Rust\u2019s memory safety and performance. Soroban contracts compile to WebAssembly for fast, predictable execution.",
+      "Harness Rust's memory safety and performance. Soroban contracts compile to WebAssembly for fast, predictable execution.",
     accent: "#ef4444",
-    href: "/getting-started/setup",
+    href: "/docs/getting-started/setup",
   },
   {
-    icon: "\u{1F310}",
+    icon: <Icon icon={Rocket} size="lg" ariaLabel="Stellar Network" />,
     title: "Stellar Network",
     description:
-      "Tap into Stellar\u2019s global financial network. Build DeFi apps, issue assets, and interact with the ecosystem natively.",
+      "Tap into Stellar's global financial network. Build DeFi apps, issue assets, and interact with the ecosystem natively.",
     accent: "#0ea5e9",
-    href: "/concepts/overview",
+    href: "/docs/concepts/overview",
   },
 ];
 

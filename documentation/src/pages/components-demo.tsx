@@ -11,7 +11,7 @@ import { Button, ButtonGroup } from '../components/buttons';
 import { ThemeToggle } from '../components/ThemeToggle';
 import styles from './components-demo.module.css';
 
-export default function ComponentsDemo(): JSX.Element {
+export default function ComponentsDemo(): React.ReactElement {
   const [loading, setLoading] = useState(false);
 
   const handleLoadingDemo = () => {
