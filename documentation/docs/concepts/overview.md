@@ -32,9 +32,10 @@ Understanding deployment, upgrades, and contract lifecycle management.
 
 Start with:
 
-1. [Storage Patterns](./storage) - Learn data persistence
-2. [Authorization](./authorization) - Secure your contracts
-3. [Events](./events) - Monitor contract activity
+1. [What is Soroban?](./introduction) - Beginner-friendly introduction
+2. [Storage Patterns](./storage) - Learn data persistence
+3. [Authorization](./authorization) - Secure your contracts
+4. [Events](./events) - Monitor contract activity
 
 ## Resources
 

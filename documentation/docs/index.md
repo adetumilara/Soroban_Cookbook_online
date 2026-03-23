@@ -25,6 +25,7 @@ Build production-ready smart contracts on Soroban, from basic concepts to advanc
 
 ## 🎯 Quick Links
 
+- [What is Soroban?](./concepts/introduction.md) - Beginner-friendly introduction
 - [Getting Started](./getting-started/setup.md) - Set up your development environment
 - [Core Concepts](./concepts/overview.md) - Learn Soroban fundamentals
 - [Patterns](./patterns/overview.md) - Reusable contract patterns

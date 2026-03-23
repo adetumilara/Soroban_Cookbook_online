@@ -333,38 +333,25 @@ export default function HomepageFeatures(): ReactNode {
             <FeatureCard key={feature.title} {...feature} />
           ))}
         </div>
-      </section>
 
-      {/* ── Soroban Pattern Cards ───────────────────────────────────────── */}
-      <section
-        className={styles.section}
-        aria-label="Soroban contract patterns"
-      >
-        <div className="container">
-          <SectionHeader
-            label="Contract patterns"
-            description="Expand any card to see working Soroban contract code examples."
-          />
-          <div className={styles.gridThree}>
-            {patterns.map((p) => (
-              <PatternCard key={p.contractName} {...p} />
-            ))}
-          </div>
+        {/* ── Soroban Pattern Cards ───────────────────────────────────────── */}
+        <SectionHeader
+          label="Contract patterns"
+          description="Expand any card to see working Soroban contract code examples."
+        />
+        <div className={styles.gridThree}>
+          {patterns.map((p) => (
+            <PatternCard key={p.contractName} {...p} />
+          ))}
         </div>
-      </section>
 
-      {/* ── Action Cards ────────────────────────────────────────────────── */}
-      <section className={styles.section} aria-label="Actions">
-        <div className="container">
-          <SectionHeader label="Take action" />
-          <div className={styles.gridFour}>
-            {actions.map((a) => (
-              <ActionCard key={a.title} {...a} />
-            ))}
-          </div>
+        {/* ── Action Cards ────────────────────────────────────────────────── */}
+        <SectionHeader label="Take action" />
+        <div className={styles.gridFour}>
+          {actions.map((a) => (
+            <ActionCard key={a.title} {...a} />
+          ))}
         </div>
-      </section>
-    </>
       </div>
     </section>
   );

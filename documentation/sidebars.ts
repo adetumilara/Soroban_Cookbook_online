@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 /**
  * Soroban Cookbook Sidebar Configuration
@@ -19,6 +19,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Core Concepts',
       items: [
+        'concepts/introduction',
         'concepts/overview',
         'concepts/storage',
         'concepts/authorization',
