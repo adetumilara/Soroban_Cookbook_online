@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import BaseCard from './BaseCard';
 import styles from './cards.module.css';
 
