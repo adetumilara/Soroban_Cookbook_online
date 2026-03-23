@@ -23,7 +23,6 @@ import {
   AlertTriangle,
   CheckCircle,
 } from "lucide-react";
-import React from "react";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // FEATURE CARDS DATA
