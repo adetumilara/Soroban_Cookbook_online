@@ -15,41 +15,31 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version: "20"
+          bun-version: latest
 
       - name: Check lockfile exists
         working-directory: ./documentation
         run: |
-          if [ ! -f package-lock.json ]; then
-            echo "❌ package-lock.json not found in documentation/"
+          if [ ! -f bun.lock ]; then
+            echo "❌ bun.lock not found in documentation/"
             exit 1
           fi
-          echo "✅ package-lock.json found"
-
-      - name: Verify Node version requirement
-        run: |
-          REQUIRED_NODE="20"
-          PACKAGE_NODE=$(grep '"node":' documentation/package.json | grep -oP '>=\K[0-9]+' | head -1)
-          if [ "$PACKAGE_NODE" != "$REQUIRED_NODE" ]; then
-            echo "⚠️  Node version mismatch: package.json requires >=20, workflow uses $REQUIRED_NODE"
-          else
-            echo "✅ Node version aligned"
-          fi
+          echo "✅ bun.lock found"
 
       - name: Install dependencies
         working-directory: ./documentation
-        run: npm ci
+        run: bun install --frozen-lockfile
 
       - name: Run TypeScript check
         working-directory: ./documentation
-        run: npm run typecheck
+        run: bun run typecheck
 
       - name: Build documentation
         working-directory: ./documentation
-        run: npm run build
+        run: bun run build
 
       - name: Verify build artifact
         run: |
@@ -90,8 +80,7 @@ jobs:
           echo ""
           echo "### Checks Passed:"
           echo "- Lockfile present and valid"
-          echo "- Node version aligned"
-          echo "- Dependencies installable"
+          echo "- Dependencies installable with bun"
           echo "- TypeScript compilation successful"
           echo "- Documentation builds successfully"
           echo "- Build artifact verified"

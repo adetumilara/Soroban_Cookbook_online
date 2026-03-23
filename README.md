@@ -27,10 +27,10 @@ A user-friendly documentation website for the [Soroban Cookbook](https://github.
 cd documentation
 
 # Install dependencies
-npm install
+bun install
 
 # Start development server
-npm start
+bun start
 ```
 
 Visit `http://localhost:3000` to view the site.
@@ -54,6 +54,7 @@ Soroban_Cookbook_online/
 
 - **Framework**: [Docusaurus 3](https://docusaurus.io/) with TypeScript
 - **Language**: TypeScript + React 19
+- **Package Manager**: [Bun](https://bun.sh/)
 - **Deployment**: Vercel / GitHub Pages
 - **Search**: Algolia DocSearch (planned)
 
@@ -62,11 +63,10 @@ Soroban_Cookbook_online/
 ### Available Scripts
 
 ```bash
-npm start          # Start dev server
-npm run build      # Build for production
-npm run serve      # Serve production build
-npm run sync-content  # Sync from GitHub repo
-npm run typecheck  # Run TypeScript checks
+bun start          # Start dev server
+bun run build      # Build for production
+bun run serve      # Serve production build
+bun run typecheck  # Run TypeScript checks
 ```
 
 ### Adding Content

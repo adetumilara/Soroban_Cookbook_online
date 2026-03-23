@@ -117,8 +117,8 @@ GitHub Pages automatically serves the latest deployment. To rollback:
 
 ```bash
 cd documentation
-npm install
-npm run build
+bun install
+bun run build
 ```
 
 The built site will be in `documentation/build/`.
@@ -127,7 +127,7 @@ The built site will be in `documentation/build/`.
 
 ```bash
 cd documentation
-npm run serve
+bun run serve
 ```
 
 Visit `http://localhost:3000` to view the built site.
@@ -136,7 +136,7 @@ Visit `http://localhost:3000` to view the built site.
 
 ```bash
 cd documentation
-npm start
+bun start
 ```
 
 This starts a live-reload development server at `http://localhost:3000`.
