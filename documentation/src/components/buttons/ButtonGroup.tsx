@@ -33,7 +33,7 @@ export function ButtonGroup({
   variant = 'default',
   className = '',
   ariaLabel,
-}: ButtonGroupProps): JSX.Element {
+}: ButtonGroupProps): React.ReactElement {
   const classNames = [
     styles.btnGroup,
     variant === 'connected' && styles.btnGroupConnected,
