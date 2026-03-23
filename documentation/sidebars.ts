@@ -12,6 +12,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'getting-started/setup',
         'getting-started/setup-linux',
+        'getting-started/setup-windows',
         'getting-started/first-contract',
         'getting-started/deploy-testnet',
       ],
