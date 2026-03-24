@@ -103,7 +103,7 @@
 }
 
 .quote::before {
-  content: "\201C";
+  content: '\201C';
   position: absolute;
   left: -0.2rem;
   top: -0.35rem;

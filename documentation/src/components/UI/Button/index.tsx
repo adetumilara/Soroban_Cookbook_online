@@ -1,6 +1,6 @@
-import React, {forwardRef} from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import type {ButtonProps} from './Button.types';
+import type { ButtonProps } from './Button.types';
 
 function Spinner() {
   return <span className="sb-btn__spinner" aria-hidden="true" />;

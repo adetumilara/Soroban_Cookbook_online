@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-[data-theme="dark"] .patternPreview {
+[data-theme='dark'] .patternPreview {
   background: var(--ifm-background-surface-color, #0f0f23);
 }
 
@@ -337,16 +337,16 @@
 }
 
 /* Dark mode specific adjustments */
-[data-theme="dark"] .viewToggle {
+[data-theme='dark'] .viewToggle {
   background: var(--ifm-color-emphasis-200);
 }
 
-[data-theme="dark"] .categoryBtn {
+[data-theme='dark'] .categoryBtn {
   background: var(--ifm-background-surface-color);
   border-color: var(--ifm-color-emphasis-300);
 }
 
-[data-theme="dark"] .metadata {
+[data-theme='dark'] .metadata {
   border-top-color: var(--ifm-color-emphasis-300);
 }
 

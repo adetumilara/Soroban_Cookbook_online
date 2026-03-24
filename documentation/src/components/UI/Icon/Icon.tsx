@@ -1,11 +1,11 @@
-import React from "react";
-import { LucideIcon, LucideProps } from "lucide-react";
-import clsx from "clsx";
+import React from 'react';
+import { LucideIcon, LucideProps } from 'lucide-react';
+import clsx from 'clsx';
 
 /**
  * Icon sizes following the design system
  */
-export type IconSize = "xs" | "sm" | "md" | "lg" | "xl";
+export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 /**
  * Mapping of icon sizes to pixel values
@@ -21,7 +21,7 @@ export const iconSizes: Record<IconSize, number> = {
 /**
  * Props for the Icon component
  */
-export interface IconProps extends Omit<LucideProps, "size"> {
+export interface IconProps extends Omit<LucideProps, 'size'> {
   /** The Lucide icon component to render */
   icon: LucideIcon;
   /** The size of the icon (xs, sm, md, lg, xl) */
@@ -56,7 +56,7 @@ export interface IconProps extends Omit<LucideProps, "size"> {
  */
 export const Icon: React.FC<IconProps> = ({
   icon: IconComponent,
-  size = "md",
+  size = 'md',
   customSize,
   decorative = false,
   className,
@@ -68,18 +68,18 @@ export const Icon: React.FC<IconProps> = ({
   // Accessibility: If not decorative, we need a label
   const accessibilityProps = decorative
     ? {
-        role: "img",
-        "aria-hidden": true,
+        role: 'img',
+        'aria-hidden': true,
       }
     : {
-        role: "img",
-        "aria-label": ariaLabel,
+        role: 'img',
+        'aria-label': ariaLabel,
       };
 
   return (
     <IconComponent
       size={iconSize}
-      className={clsx("icon", `icon--${size}`, className)}
+      className={clsx('icon', `icon--${size}`, className)}
       {...accessibilityProps}
       {...props}
     />

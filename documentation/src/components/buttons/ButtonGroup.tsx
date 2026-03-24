@@ -1,6 +1,6 @@
 /**
  * ButtonGroup Component - Connected button sets
- * 
+ *
  * Features:
  * - Connected button styling
  * - Segmented control style
@@ -44,11 +44,7 @@ export function ButtonGroup({
     .join(' ');
 
   return (
-    <div
-      className={classNames}
-      role="group"
-      aria-label={ariaLabel}
-    >
+    <div className={classNames} role="group" aria-label={ariaLabel}>
       {children}
     </div>
   );

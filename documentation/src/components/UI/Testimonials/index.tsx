@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, { useMemo, useState } from 'react';
 import clsx from 'clsx';
 import styles from './Testimonials.module.css';
 
@@ -180,7 +180,7 @@ export default function Testimonials({
                     src={item.avatarUrl}
                     alt={`${item.name} avatar`}
                     loading="lazy"
-                    onError={() => setFailedAvatars((prev) => ({...prev, [index]: true}))}
+                    onError={() => setFailedAvatars((prev) => ({ ...prev, [index]: true }))}
                   />
                 )}
               </div>
@@ -209,14 +209,17 @@ export default function Testimonials({
   );
 
   return (
-    <section className={clsx(styles.section, className)} aria-labelledby="community-testimonials-title">
+    <section
+      className={clsx(styles.section, className)}
+      aria-labelledby="community-testimonials-title">
       <div className={clsx('container', styles.inner)}>
         <header className={styles.sectionHeader}>
           <h2 id="community-testimonials-title" className={styles.title}>
             Built by Developers, Backed by Community
           </h2>
           <p className={styles.subtitle}>
-            Feedback from Soroban builders and the channels where contributors collaborate every day.
+            Feedback from Soroban builders and the channels where contributors collaborate every
+            day.
           </p>
         </header>
 

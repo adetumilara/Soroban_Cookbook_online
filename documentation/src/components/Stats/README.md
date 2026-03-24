@@ -16,7 +16,7 @@ An impressive animated statistics section with scroll-triggered counter animatio
 ```tsx
 import Stats from '@site/src/components/Stats';
 
-<Stats />
+<Stats />;
 ```
 
 ## Customization
