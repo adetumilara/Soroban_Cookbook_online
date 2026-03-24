@@ -52,11 +52,12 @@ export default function EmptyState({
   const sizeClass = size === 'sm' ? styles.sizeSm : size === 'lg' ? styles.sizeLg : undefined;
 
   return (
-    <div
-      className={clsx(styles.emptyState, sizeClass, className)}
-      role="status"
-      aria-label={title}>
-      {icon && <div className={styles.iconWrapper} aria-hidden="true">{icon}</div>}
+    <div className={clsx(styles.emptyState, sizeClass, className)} role="status" aria-label={title}>
+      {icon && (
+        <div className={styles.iconWrapper} aria-hidden="true">
+          {icon}
+        </div>
+      )}
 
       <div className={styles.content}>
         <h3 className={styles.title}>{title}</h3>
