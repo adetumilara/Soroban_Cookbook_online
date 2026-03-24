@@ -1,6 +1,6 @@
 /**
  * ThemeToggle Component - Dark mode toggle with persistence
- * 
+ *
  * Features:
  * - Smooth toggle animation
  * - LocalStorage persistence
@@ -54,24 +54,19 @@ export function ThemeToggle({
   // Get system preference
   const getSystemTheme = useCallback((): Theme => {
     if (typeof window === 'undefined') return 'dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }, []);
 
   // Apply theme to document
   const applyTheme = useCallback((newTheme: Theme) => {
     if (typeof document === 'undefined') return;
-    
+
     document.documentElement.setAttribute(THEME_ATTRIBUTE, newTheme);
-    
+
     // Update meta theme-color for mobile browsers
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute(
-        'content',
-        newTheme === 'dark' ? '#1e1e2e' : '#ffffff'
-      );
+      metaThemeColor.setAttribute('content', newTheme === 'dark' ? '#1e1e2e' : '#ffffff');
     }
   }, []);
 
@@ -88,16 +83,17 @@ export function ThemeToggle({
   useEffect(() => {
     const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
     const initialTheme = savedTheme || getSystemTheme();
-    
-    setTheme(initialTheme);
+
     applyTheme(initialTheme);
+    setTheme(initialTheme);
     setMounted(true);
-  }, [applyTheme, getSystemTheme]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Listen for system theme changes
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
+
     const handleChange = (e: MediaQueryListEvent) => {
       // Only update if no saved preference
       const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
@@ -114,14 +110,10 @@ export function ThemeToggle({
 
   // Don't render until mounted (prevents hydration mismatch)
   if (!mounted) {
-    return <div className={`${styles.placeholder} ${styles[size]}`} /> as React.ReactElement;
+    return (<div className={`${styles.placeholder} ${styles[size]}`} />) as React.ReactElement;
   }
 
-  const classNames = [
-    styles.toggle,
-    styles[size],
-    className,
-  ].filter(Boolean).join(' ');
+  const classNames = [styles.toggle, styles[size], className].filter(Boolean).join(' ');
 
   return (
     <button
@@ -130,8 +122,7 @@ export function ThemeToggle({
       onClick={toggleTheme}
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
       aria-pressed={theme === 'dark'}
-      title={`Current: ${theme} mode`}
-    >
+      title={`Current: ${theme} mode`}>
       {/* Sun Icon (Light Mode) */}
       <span className={styles.sunIcon} aria-hidden="true">
         <svg
@@ -142,8 +133,7 @@ export function ThemeToggle({
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+          strokeLinejoin="round">
           <circle cx="12" cy="12" r="5" />
           <line x1="12" y1="1" x2="12" y2="3" />
           <line x1="12" y1="21" x2="12" y2="23" />
@@ -166,17 +156,14 @@ export function ThemeToggle({
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+          strokeLinejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       </span>
 
       {/* Label (optional) */}
       {showLabel && (
-        <span className={styles.label}>
-          {theme === 'dark' ? darkLabel : lightLabel}
-        </span>
+        <span className={styles.label}>{theme === 'dark' ? darkLabel : lightLabel}</span>
       )}
     </button>
   );
@@ -206,13 +193,11 @@ export function setStoredTheme(theme: Theme): void {
  */
 export function initializeTheme(): void {
   if (typeof window === 'undefined') return;
-  
+
   const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
-  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   const theme = savedTheme || systemTheme;
-  
+
   document.documentElement.setAttribute(THEME_ATTRIBUTE, theme);
 }
 
