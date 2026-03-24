@@ -67,6 +67,10 @@ bun start          # Start dev server
 bun run build      # Build for production
 bun run serve      # Serve production build
 bun run typecheck  # Run TypeScript checks
+bun run lint       # Lint code with ESLint
+bun run lint:fix   # Fix linting issues
+bun run format     # Format code with Prettier
+bun run format:check # Check formatting
 ```
 
 ### Adding Content
@@ -86,6 +90,34 @@ title: My Pattern
 ## Overview
 
 Content here...
+```
+
+## 🔄 CI/CD Pipeline
+
+This project uses GitHub Actions for automated quality checks and deployments. See [CI_CD_PIPELINE.md](CI_CD_PIPELINE.md) for detailed documentation.
+
+### Quality Checks (CI)
+
+Automated checks run on every pull request and push to `main`:
+
+- **Formatting** - Prettier code formatting validation
+- **Linting** - ESLint code quality checks
+- **TypeScript** - Type safety validation
+- **Build** - Documentation build verification
+- **Deployment** - Deployment configuration validation
+
+### Deployment (CD)
+
+Documentation automatically deploys to GitHub Pages after CI passes on `main` branch.
+
+### Local Pre-commit Checks
+
+Before pushing, run these commands:
+
+```bash
+cd documentation
+bun install --frozen-lockfile
+bun run format:check && bun run lint && bun run typecheck && bun run build
 ```
 
 ## 🚢 Deployment
