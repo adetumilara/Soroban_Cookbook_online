@@ -110,7 +110,35 @@ const samplePatterns: Pattern[] = [
     icon: '⏰',
   },
   {
-    id: '8',
+    id: '9',
+    contractName: 'escrow_contract',
+    description: 'Secure escrow service for conditional fund release between parties.',
+    tag: '#utility',
+    category: 'utility',
+    difficulty: 'intermediate',
+    popularity: 74,
+    code: `pub fn create_escrow(env: Env, buyer: Address, seller: Address, amount: i128) {
+    // Escrow creation logic
+}`,
+    href: '/docs/patterns/escrow-contract',
+    icon: '🤝',
+  },
+  {
+    id: '10',
+    contractName: 'escrow_contract',
+    description: 'Secure escrow service for conditional fund release between parties.',
+    tag: '#utility',
+    category: 'utility',
+    difficulty: 'intermediate',
+    popularity: 74,
+    code: `pub fn create_escrow(env: Env, buyer: Address, seller: Address, amount: i128) {
+    // Escrow creation logic
+}`,
+    href: '/docs/patterns/escrow-contract',
+    icon: '🤝',
+  },
+  {
+    id: '11',
     contractName: 'escrow_contract',
     description: 'Secure escrow service for conditional fund release between parties.',
     tag: '#utility',
