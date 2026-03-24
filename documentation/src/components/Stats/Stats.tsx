@@ -20,7 +20,7 @@ const StatItem: React.FC<StatItemProps> = ({ end, label, suffix = '', duration =
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     if (ref.current) {
@@ -39,7 +39,7 @@ const StatItem: React.FC<StatItemProps> = ({ end, label, suffix = '', duration =
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
-      
+
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       setCount(Math.floor(easeOutQuart * end));
 
@@ -56,7 +56,8 @@ const StatItem: React.FC<StatItemProps> = ({ end, label, suffix = '', duration =
   return (
     <div ref={ref} className={styles.statItem}>
       <div className={styles.statNumber}>
-        {count.toLocaleString()}{suffix}
+        {count.toLocaleString()}
+        {suffix}
       </div>
       <div className={styles.statLabel}>{label}</div>
     </div>

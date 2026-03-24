@@ -1,9 +1,9 @@
-import React, { type ReactNode } from "react";
-import clsx from "clsx";
-import BaseCard from "./BaseCard";
-import styles from "./cards.module.css";
+import React, { type ReactNode } from 'react';
+import clsx from 'clsx';
+import BaseCard from './BaseCard';
+import styles from './cards.module.css';
 
-export type ActionCardVariant = "default" | "success" | "warning" | "danger";
+export type ActionCardVariant = 'default' | 'success' | 'warning' | 'danger';
 
 export interface ActionCardProps {
   title: string;
@@ -37,37 +37,25 @@ export default function ActionCard({
   title,
   description,
   cta,
-  variant = "default",
+  variant = 'default',
   ctaHref,
   onCtaClick,
   icon,
 }: ActionCardProps) {
   return (
-    <BaseCard
-      className={clsx(styles.actionCard, styles[`actionCard--${variant}`])}
-    >
+    <BaseCard className={clsx(styles.actionCard, styles[`actionCard--${variant}`])}>
       {icon && <div className={styles.actionIcon}>{icon}</div>}
       <h3 className={styles.actionTitle}>{title}</h3>
       <p className={styles.actionDescription}>{description}</p>
 
       {ctaHref ? (
-        <a
-          href={ctaHref}
-          className={clsx(
-            styles.actionButton,
-            styles[`actionButton--${variant}`],
-          )}
-        >
+        <a href={ctaHref} className={clsx(styles.actionButton, styles[`actionButton--${variant}`])}>
           {cta} →
         </a>
       ) : (
         <button
           onClick={onCtaClick}
-          className={clsx(
-            styles.actionButton,
-            styles[`actionButton--${variant}`],
-          )}
-        >
+          className={clsx(styles.actionButton, styles[`actionButton--${variant}`])}>
           {cta} →
         </button>
       )}

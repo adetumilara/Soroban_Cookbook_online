@@ -1,6 +1,6 @@
 /**
  * Components Demo Page
- * 
+ *
  * Showcases all button variants, sizes, states, and dark mode functionality.
  * This page demonstrates the comprehensive button system and theme toggle.
  */
@@ -22,14 +22,13 @@ export default function ComponentsDemo(): React.ReactElement {
   return (
     <Layout
       title="Components Demo"
-      description="Showcase of button components and dark mode functionality"
-    >
+      description="Showcase of button components and dark mode functionality">
       <div className={styles.container}>
         <header className={styles.header}>
           <h1>Components Demo</h1>
           <p>
-            Comprehensive button system with dark mode support, WCAG 2.1 AA
-            accessibility compliance, and smooth theme transitions.
+            Comprehensive button system with dark mode support, WCAG 2.1 AA accessibility
+            compliance, and smooth theme transitions.
           </p>
         </header>
 
@@ -97,30 +96,52 @@ export default function ComponentsDemo(): React.ReactElement {
             <Button
               variant="primary"
               startIcon={
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2">
                   <path d="M12 5v14M5 12h14" />
                 </svg>
-              }
-            >
+              }>
               With Start Icon
             </Button>
             <Button
               variant="secondary"
               endIcon={
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              }
-            >
+              }>
               With End Icon
             </Button>
             <Button variant="primary" iconOnly aria-label="Add item">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2">
                 <path d="M12 5v14M5 12h14" />
               </svg>
             </Button>
             <Button variant="danger" iconOnly aria-label="Delete item">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2">
                 <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2" />
               </svg>
             </Button>

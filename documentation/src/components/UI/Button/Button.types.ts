@@ -1,4 +1,4 @@
-import type {ButtonHTMLAttributes, ReactNode} from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'link';
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';

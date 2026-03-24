@@ -1,7 +1,7 @@
-import React, { useState, type ReactNode } from "react";
-import clsx from "clsx";
-import BaseCard from "./BaseCard";
-import styles from "./cards.module.css";
+import React, { useState, type ReactNode } from 'react';
+import clsx from 'clsx';
+import BaseCard from './BaseCard';
+import styles from './cards.module.css';
 
 export interface PatternCardProps {
   contractName: string;
@@ -57,9 +57,8 @@ export default function PatternCard({
         className={styles.patternToggle}
         onClick={() => setExpanded((v) => !v)}
         aria-expanded={expanded}
-        aria-controls={`code-${contractName}`}
-      >
-        {expanded ? "▲ Hide" : "▼ Show"} example
+        aria-controls={`code-${contractName}`}>
+        {expanded ? '▲ Hide' : '▼ Show'} example
       </button>
 
       {expanded && (
@@ -67,8 +66,7 @@ export default function PatternCard({
           id={`code-${contractName}`}
           className={styles.patternCode}
           tabIndex={0}
-          aria-label={`Code example for ${contractName}`}
-        >
+          aria-label={`Code example for ${contractName}`}>
           <code>{code}</code>
         </pre>
       )}

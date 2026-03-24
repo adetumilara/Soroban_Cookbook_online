@@ -3,12 +3,12 @@ import clsx from 'clsx';
 import styles from './cards.module.css';
 
 export interface GradientCardProps {
-    gradient: string;
-    icon: ReactNode;
-    stat: string;
-    label: string;
-    title: string;
-    href?: string;
+  gradient: string;
+  icon: ReactNode;
+  stat: string;
+  label: string;
+  title: string;
+  href?: string;
 }
 
 /**
@@ -27,31 +27,32 @@ export interface GradientCardProps {
  *   />
  */
 export default function GradientCard({
-    gradient,
-    icon,
-    stat,
-    label,
-    title,
-    href,
+  gradient,
+  icon,
+  stat,
+  label,
+  title,
+  href,
 }: GradientCardProps) {
-    const Tag = href ? 'a' : 'div';
+  const Tag = href ? 'a' : 'div';
 
-    return (
-        <Tag
-            href={href}
-            aria-label={`${title}: ${stat}`}
-            className={clsx(styles.gradientCard, href && styles.interactive)}
-            style={{ background: gradient }}
-        >
-            {/* Shimmer overlay */}
-            <div className={styles.gradientShimmer} aria-hidden="true" />
+  return (
+    <Tag
+      href={href}
+      aria-label={`${title}: ${stat}`}
+      className={clsx(styles.gradientCard, href && styles.interactive)}
+      style={{ background: gradient }}>
+      {/* Shimmer overlay */}
+      <div className={styles.gradientShimmer} aria-hidden="true" />
 
-            <div className={styles.gradientContent}>
-                <span className={styles.gradientIcon} aria-hidden="true">{icon}</span>
-                <span className={styles.gradientStat}>{stat}</span>
-                <span className={styles.gradientLabel}>{label}</span>
-                <span className={styles.gradientTitle}>{title}</span>
-            </div>
-        </Tag>
-    );
+      <div className={styles.gradientContent}>
+        <span className={styles.gradientIcon} aria-hidden="true">
+          {icon}
+        </span>
+        <span className={styles.gradientStat}>{stat}</span>
+        <span className={styles.gradientLabel}>{label}</span>
+        <span className={styles.gradientTitle}>{title}</span>
+      </div>
+    </Tag>
+  );
 }

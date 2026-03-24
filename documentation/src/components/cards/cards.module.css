@@ -37,13 +37,13 @@
 }
 
 /* Dark mode overrides — Docusaurus adds [data-theme="dark"] to <html> */
-[data-theme="dark"] .baseCard {
+[data-theme='dark'] .baseCard {
   background: var(--ifm-background-surface-color, #1e1e2e);
   border-color: var(--ifm-color-emphasis-200, #313244);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme="dark"] .baseCard:hover {
+[data-theme='dark'] .baseCard:hover {
   box-shadow:
     0 12px 40px rgba(0, 0, 0, 0.4),
     0 4px 12px rgba(0, 0, 0, 0.2);
@@ -87,7 +87,7 @@
   color: var(--ifm-color-emphasis-700, #555);
 }
 
-[data-theme="dark"] .featureDescription {
+[data-theme='dark'] .featureDescription {
   color: var(--ifm-color-emphasis-600, #a6adc8);
 }
 
@@ -125,11 +125,7 @@
 .gradientShimmer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.18) 0%,
-    transparent 55%
-  );
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 55%);
   pointer-events: none;
   border-radius: inherit;
 }
@@ -176,7 +172,7 @@
   background: var(--pattern-card-bg, #fffdf5) !important;
 }
 
-[data-theme="dark"] .patternCard {
+[data-theme='dark'] .patternCard {
   --pattern-card-bg: #1e1b12;
 }
 
@@ -213,7 +209,7 @@
   font-family: var(--ifm-font-family-monospace);
 }
 
-[data-theme="dark"] .patternTag {
+[data-theme='dark'] .patternTag {
   color: #fbbf24;
   background: rgba(245, 158, 11, 0.2);
 }
@@ -355,7 +351,7 @@
   color: #fff;
 }
 
-[data-theme="dark"] .actionButton--default {
+[data-theme='dark'] .actionButton--default {
   background: #e8e8e8;
   color: #111;
 }
