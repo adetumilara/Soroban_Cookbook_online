@@ -1,265 +1,269 @@
-# Soroban Cookbook - Documentation Website
+# Soroban Cookbook
 
-![Soroban Cookbook](https://img.shields.io/badge/Soroban-Cookbook-blue?style=for-the-badge&logo=stellar)
-![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
-![Status](https://img.shields.io/badge/status-MVP-orange?style=for-the-badge)
+[![CI](https://github.com/Soroban-Cookbook/Soroban_Cookbook_online/actions/workflows/ci.yml/badge.svg)](https://github.com/Soroban-Cookbook/Soroban_Cookbook_online/actions/workflows/ci.yml)
+[![CD - Deploy to GitHub Pages](https://github.com/Soroban-Cookbook/Soroban_Cookbook_online/actions/workflows/deploy.yml/badge.svg)](https://github.com/Soroban-Cookbook/Soroban_Cookbook_online/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
+[![Docusaurus](https://img.shields.io/badge/built%20with-Docusaurus-3ECC5F?style=flat-square&logo=docusaurus)](https://docusaurus.io)
+[![Stellar](https://img.shields.io/badge/powered%20by-Stellar-7B61FF?style=flat-square)](https://stellar.org)
 
-A user-friendly documentation website for the [Soroban Cookbook](https://github.com/Soroban-Cookbook/Soroban-Cookbook-), transforming how developers learn Soroban smart contract development through interactive examples and progressive learning paths.
+A community-driven documentation site for [Soroban](https://developers.stellar.org/docs/smart-contracts) — Stellar's smart contract platform. Covers everything from environment setup to advanced contract patterns, written in Rust.
 
-## 🌟 Features
+## Table of Contents
 
-- 📚 **Progressive Learning Paths** - Beginner to Advanced tutorials
-- 🎨 **Beautiful UI** - Modern design with dark mode support
-- 📱 **Fully Responsive** - Works perfectly on all devices
-- ⚡ **Fast Performance** - Built with Docusaurus for optimal speed
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Development Scripts](#development-scripts)
+- [Documentation Sections](#documentation-sections)
+- [CI/CD Pipeline](#cicd-pipeline)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [Roadmap](#roadmap)
+- [Resources](#resources)
+- [License](#license)
 
-## 🎯 Planned Features
+---
 
-- ✨ Interactive Code Playgrounds
-- 🔍 Smart Search (Algolia integration)
-- 🎯 Difficulty Badges
-- 💻 Live Rust code examples
+## Overview
 
-## 🚀 Quick Start
+The Soroban Cookbook is a documentation website that helps developers learn Soroban smart contract development through:
+
+- Progressive learning paths from beginner to advanced
+- Real-world contract patterns and examples written in Rust
+- Interactive code examples (planned)
+- Dark mode support and responsive design
+
+Built with [Docusaurus 3](https://docusaurus.io/) and deployed to GitHub Pages and Vercel.
+
+---
+
+## Quick Start
 
 ```bash
-# Navigate to documentation directory
-cd documentation
+# Clone the repository
+git clone https://github.com/Soroban-Cookbook/Soroban_Cookbook_online.git
+cd Soroban_Cookbook_online
 
 # Install dependencies
-bun install
+cd documentation
+npm install
 
-# Start development server
-bun start
+# Start the development server
+npm start
 ```
 
-Visit `http://localhost:3000` to view the site.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-## 📁 Project Structure
+---
+
+## Project Structure
 
 ```
 Soroban_Cookbook_online/
-├── documentation/           # Main documentation site
-│   ├── docs/               # MDX documentation files
+├── .github/
+│   └── workflows/
+│       ├── ci.yml              # Lint, typecheck, build checks
+│       ├── deploy.yml          # GitHub Pages deployment
+│       └── validate-setup.yml  # Setup validation
+├── documentation/
+│   ├── docs/                   # Markdown/MDX documentation content
+│   │   ├── concepts/           # Core Soroban concepts
+│   │   ├── getting-started/    # Setup and first contract guides
+│   │   ├── patterns/           # Reusable contract patterns
+│   │   └── design-system/      # UI component docs
 │   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── css/          # Styling
-│   │   └── pages/        # Static pages
-│   └── package.json
-├── .github/workflows/     # CI/CD pipelines
-└── README.md             # This file
+│   │   ├── components/         # React components
+│   │   ├── css/                # Global styles and design tokens
+│   │   └── pages/              # Custom Docusaurus pages
+│   ├── static/                 # Static assets
+│   ├── docusaurus.config.ts    # Site configuration
+│   └── sidebars.ts             # Sidebar navigation config
+├── CI_CD_PIPELINE.md
+├── CONTRIBUTING.md
+├── DEPLOYMENT.md
+└── vercel.json
 ```
 
-## 🛠️ Tech Stack
+---
 
-- **Framework**: [Docusaurus 3](https://docusaurus.io/) with TypeScript
-- **Language**: TypeScript + React 19
-- **Package Manager**: [Bun](https://bun.sh/)
-- **Deployment**: Vercel / GitHub Pages
-- **Search**: Algolia DocSearch (planned)
+## Installation
 
-## 📝 Development
+### Prerequisites
 
-### Available Scripts
+- Node.js 20+
+- Git
+
+### Steps
 
 ```bash
-bun start          # Start dev server
-bun run build      # Build for production
-bun run serve      # Serve production build
-bun run typecheck  # Run TypeScript checks
-bun run lint       # Lint code with ESLint
-bun run lint:fix   # Fix linting issues
-bun run format     # Format code with Prettier
-bun run format:check # Check formatting
+git clone https://github.com/Soroban-Cookbook/Soroban_Cookbook_online.git
+cd Soroban_Cookbook_online/documentation
+npm install
 ```
 
-### Adding Content
+To use npm instead:
 
-1. Create a new `.mdx` or `.md` file in `documentation/docs/`
-2. Add frontmatter with metadata
-3. Update `documentation/sidebars.ts` for navigation
+```bash
+npm install
+```
 
-Example:
+---
+
+## Development Scripts
+
+Run these from the `documentation/` directory:
+
+```bash
+npm start            # Start dev server with live reload
+npm run build        # Build for production
+npm run serve        # Serve the production build locally
+npm run typecheck    # TypeScript type checking
+npm run lint         # ESLint code quality checks
+npm run lint:fix     # Auto-fix linting issues
+npm run format       # Format code with Prettier
+npm run format:check # Check formatting without writing
+```
+
+### Pre-push checklist
+
+```bash
+cd documentation
+npm ci
+npm run format:check && npm run lint && npm run typecheck && npm run build
+```
+
+---
+
+## Documentation Sections
+
+| Section | Description |
+|---|---|
+| [Getting Started](documentation/docs/getting-started/) | Environment setup, first contract, testnet deployment |
+| [Concepts](documentation/docs/concepts/) | Storage, authorization, events, and core architecture |
+| [Patterns](documentation/docs/patterns/) | Reusable smart contract patterns |
+| [Design System](documentation/docs/design-system/) | UI components, typography, and tokens |
+
+### Adding New Content
+
+1. Create a `.md` or `.mdx` file in the appropriate `documentation/docs/` subdirectory
+2. Add frontmatter:
 
 ```mdx
 ---
 sidebar_position: 1
 title: My Pattern
+description: Brief description of the pattern
+---
+```
+
+3. Update `documentation/sidebars.ts` if needed for navigation
+
 ---
 
-## Overview
+## CI/CD Pipeline
 
-Content here...
-```
+GitHub Actions runs automated checks on every pull request and push to `main`.
 
-## 🔄 CI/CD Pipeline
+### CI checks (ci.yml)
 
-This project uses GitHub Actions for automated quality checks and deployments. See [CI_CD_PIPELINE.md](CI_CD_PIPELINE.md) for detailed documentation.
+| Job | What it checks |
+|---|---|
+| Lint & Format | Prettier formatting + ESLint |
+| TypeScript Check | Type safety via `tsc` |
+| Build Documentation | Full Docusaurus production build |
+| Validate Deployment | Lockfile and workflow config validation |
 
-### Quality Checks (CI)
+### CD deployment (deploy.yml)
 
-Automated checks run on every pull request and push to `main`:
+Automatically deploys to GitHub Pages on every push to `main`.
 
-- **Formatting** - Prettier code formatting validation
-- **Linting** - ESLint code quality checks
-- **TypeScript** - Type safety validation
-- **Build** - Documentation build verification
-- **Deployment** - Deployment configuration validation
+See [CI_CD_PIPELINE.md](CI_CD_PIPELINE.md) for full pipeline documentation.
 
-### Deployment (CD)
+---
 
-Documentation automatically deploys to GitHub Pages after CI passes on `main` branch.
+## Deployment
 
-### Local Pre-commit Checks
+### GitHub Pages (automatic)
 
-Before pushing, run these commands:
+Deploys automatically via GitHub Actions on push to `main`. Requires:
 
-```bash
-cd documentation
-bun install --frozen-lockfile
-bun run format:check && bun run lint && bun run typecheck && bun run build
-```
+- Settings → Pages → Source set to "GitHub Actions"
+- Settings → Actions → General → "Read and write permissions"
 
-## 🚢 Deployment
-
-### Vercel (Recommended)
-
-1. Push to GitHub
-2. Import project in Vercel
-3. Deploy automatically
+### Vercel
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Soroban-Cookbook/Soroban_Cookbook_online)
 
-### GitHub Pages
+Import the repo in Vercel — it picks up `vercel.json` automatically.
 
-Automatically deploys on push to `main` via GitHub Actions.
+### Manual trigger
 
-#### Required Repository Configuration
+Go to Actions → "CD - Deploy to GitHub Pages" → Run workflow.
 
-For the GitHub Actions deployment to work, ensure the following settings are configured in your repository:
+See [DEPLOYMENT.md](DEPLOYMENT.md) for full deployment documentation.
 
-1. **GitHub Pages Source**
-   - Go to Settings → Pages
-   - Set "Source" to "GitHub Actions"
-   - This allows the workflow to deploy the built artifacts
+---
 
-2. **Branch Protection (Recommended)**
-   - Go to Settings → Branches
-   - Add rule for `main` branch
-   - Require status checks to pass before merging
-   - This ensures only successful builds are merged
+## Contributing
 
-3. **Workflow Permissions**
-   - Go to Settings → Actions → General
-   - Set "Workflow permissions" to "Read and write permissions"
-   - This allows the workflow to deploy to Pages
+Contributions are welcome. Ways to help:
 
-4. **Environment Configuration**
-   - The workflow uses the `github-pages` environment
-   - Deployment URL will be available in workflow run details
+- Add new contract examples or patterns
+- Improve or fix existing documentation
+- Enhance UI components
+- Report bugs or suggest improvements
 
-#### Deployment Behavior
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines, code style, and the PR process.
 
-- **On Push to main**: Automatically builds and deploys docs
-- **Manual Trigger**: Use "Run workflow" in Actions tab to manually deploy
-- **Failure Handling**: Workflow fails explicitly if Pages is not configured (no silent skips)
-- **Build Artifact**: Generated from `documentation/build` directory
+---
 
-## 🤝 Contributing
+## Roadmap
 
-We welcome contributions! Here's how:
+### Phase 1 — Setup (complete)
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test locally
-5. Submit a pull request
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
-
-## 🎨 Design System
-
-### Colors (Planned)
-
-- **Primary**: #0091FF (Stellar Blue)
-- **Success**: #00D084
-- **Warning**: #FFB84D
-- **Error**: #FF5656
-
-## 📊 Roadmap
-
-### Phase 1: Setup ✅
-
-- [x] Base Docusaurus setup
+- [x] Docusaurus site with TypeScript
 - [x] Core documentation structure
-- [x] Deployment configuration
-- [x] TypeScript support
+- [x] CI/CD pipeline
+- [x] GitHub Pages + Vercel deployment
 
-### Phase 2: Content Development (Current)
+### Phase 2 — Content (in progress)
 
 - [ ] Getting started guides
 - [ ] Smart contract patterns
 - [ ] Code examples with tests
 - [ ] Best practices documentation
 
-### Phase 3: Interactivity
+### Phase 3 — Interactivity
 
-- [ ] Monaco Editor integration
-- [ ] Live code playground
+- [ ] Monaco Editor / live code playground
 - [ ] Algolia DocSearch
-- [ ] Custom React components
+- [ ] Difficulty badges
 
-### Phase 4: Advanced Features
+### Phase 4 — Advanced
 
 - [ ] Server-side compilation API
-- [ ] Real testnet deployment
+- [ ] Real testnet deployment examples
 - [ ] Video tutorials
-- [ ] Community contributions
 
-## 📚 Resources
+---
 
-- [Soroban Cookbook GitHub](https://github.com/Soroban-Cookbook/Soroban-Cookbook-)
+## Resources
+
 - [Soroban Documentation](https://developers.stellar.org/docs/smart-contracts)
+- [Soroban SDK Reference](https://docs.rs/soroban-sdk)
+- [Soroban Examples](https://github.com/stellar/soroban-examples)
 - [Stellar Developer Portal](https://developers.stellar.org/)
 - [Stellar Discord](https://discord.gg/stellardev)
 - [Docusaurus Docs](https://docusaurus.io/docs)
 
-## 🐛 Troubleshooting
+---
 
-### Build fails
+## License
 
-```bash
-cd documentation
-npm run clear
-npm install
-npm run build
-```
-
-### Port 3000 in use
-
-```bash
-npm start -- --port 3001
-```
-
-### TypeScript errors
-
-```bash
-npm run typecheck
-```
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) for details.
-
-## 🌟 Acknowledgments
-
-- Built with [Docusaurus](https://docusaurus.io)
-- Styled with [Tailwind CSS](https://tailwindcss.com)
-- Powered by [Stellar](https://stellar.org)
-- Content from [Soroban Cookbook](https://github.com/Soroban-Cookbook/Soroban-Cookbook-)
+MIT — see [LICENSE](LICENSE) for details.
 
 ---
 
-**Built by the community • Powered by Stellar • Written in Rust**
+Built by the community · Powered by [Stellar](https://stellar.org) · Written in Rust
 
-Questions? Join the [Stellar Discord](https://discord.gg/stellardev) or [open an issue](https://github.com/Soroban-Cookbook/Soroban_Cookbook_online/issues).

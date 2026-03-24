@@ -117,8 +117,8 @@ GitHub Pages automatically serves the latest deployment. To rollback:
 
 ```bash
 cd documentation
-bun install
-bun run build
+npm install
+npm run build
 ```
 
 The built site will be in `documentation/build/`.
@@ -127,7 +127,7 @@ The built site will be in `documentation/build/`.
 
 ```bash
 cd documentation
-bun run serve
+npm run serve
 ```
 
 Visit `http://localhost:3000` to view the built site.
@@ -136,7 +136,7 @@ Visit `http://localhost:3000` to view the built site.
 
 ```bash
 cd documentation
-bun start
+npm start
 ```
 
 This starts a live-reload development server at `http://localhost:3000`.
@@ -176,3 +176,4 @@ For issues or questions:
 2. Review workflow logs in the Actions tab
 3. Open an issue on GitHub with workflow logs attached
 4. Join the [Stellar Discord](https://discord.gg/stellardev) for community support
+

@@ -23,8 +23,8 @@ Validates code formatting and linting standards.
 
 **Steps:**
 - Checkout code
-- Setup Bun package manager
-- Cache Bun dependencies
+- Setup Node.js package manager
+- Cache npm dependencies
 - Install dependencies with frozen lockfile
 - Check formatting with Prettier
 - Lint with ESLint (max warnings: 0)
@@ -36,9 +36,9 @@ Validates code formatting and linting standards.
 **Local Equivalent:**
 ```bash
 cd documentation
-bun install --frozen-lockfile
-bun run format:check
-bun run lint
+npm ci
+npm run format:check
+npm run lint
 ```
 
 #### 2. TypeScript Check (`typecheck`)
@@ -46,8 +46,8 @@ Validates TypeScript compilation without errors.
 
 **Steps:**
 - Checkout code
-- Setup Bun
-- Cache Bun dependencies
+- Setup Node.js
+- Cache npm dependencies
 - Install dependencies
 - Run TypeScript compiler
 
@@ -57,8 +57,8 @@ Validates TypeScript compilation without errors.
 **Local Equivalent:**
 ```bash
 cd documentation
-bun install --frozen-lockfile
-bun run typecheck
+npm ci
+npm run typecheck
 ```
 
 #### 3. Build Documentation (`build-docs`)
@@ -66,8 +66,8 @@ Builds the Docusaurus documentation site.
 
 **Steps:**
 - Checkout code
-- Setup Bun
-- Cache Bun dependencies
+- Setup Node.js
+- Cache npm dependencies
 - Cache build output
 - Install dependencies
 - Build documentation
@@ -82,8 +82,8 @@ Builds the Docusaurus documentation site.
 **Local Equivalent:**
 ```bash
 cd documentation
-bun install --frozen-lockfile
-bun run build
+npm ci
+npm run build
 ```
 
 #### 4. Validate Deployment (`validate-deployment`)
@@ -91,14 +91,14 @@ Validates deployment configuration and workflow syntax.
 
 **Steps:**
 - Checkout code
-- Setup Bun
-- Check bun.lock exists
-- Cache Bun dependencies
+- Setup Node.js
+- Check package-lock.json exists
+- Cache npm dependencies
 - Install dependencies
 - Validate workflow syntax (checks for required GitHub Actions)
 
 **Failure Conditions:**
-- bun.lock missing
+- package-lock.json missing
 - Required GitHub Actions missing from deploy workflow
 
 #### 5. CI Summary (`summary`)
@@ -122,8 +122,8 @@ Builds the documentation site for deployment.
 
 **Steps:**
 - Checkout code
-- Setup Bun
-- Cache Bun dependencies
+- Setup Node.js
+- Cache npm dependencies
 - Install dependencies
 - Build documentation
 - Upload artifact to GitHub Pages
@@ -144,10 +144,10 @@ Deploys the built documentation to GitHub Pages.
 
 The pipeline implements multi-level caching to optimize runtime:
 
-### Bun Dependencies Cache
-- **Key:** `bun-${{ hashFiles('documentation/bun.lock') }}`
-- **Path:** `~/.bun/install/cache`
-- **Restore Keys:** `bun-` (fallback to any previous cache)
+### npm Dependencies Cache
+- **Key:** `npm-${{ hashFiles('documentation/package-lock.json') }}`
+- **Path:** `~/.npm`
+- **Restore Keys:** `npm-` (fallback to any previous cache)
 - **Impact:** Reduces dependency installation time by ~60-80%
 
 ### Build Output Cache
@@ -190,40 +190,40 @@ Before pushing, run these commands to catch issues early:
 cd documentation
 
 # Install dependencies
-bun install --frozen-lockfile
+npm ci
 
 # Format check
-bun run format:check
+npm run format:check
 
 # Lint check
-bun run lint
+npm run lint
 
 # TypeScript check
-bun run typecheck
+npm run typecheck
 
 # Build check
-bun run build
+npm run build
 ```
 
 ### Auto-fixing Issues
 
 ```bash
 # Fix formatting
-bun run format
+npm run format
 
 # Fix linting issues (where possible)
-bun run lint:fix
+npm run lint:fix
 ```
 
 ### Full CI Simulation
 
 ```bash
 cd documentation
-bun install --frozen-lockfile
-bun run format:check && \
-bun run lint && \
-bun run typecheck && \
-bun run build
+npm ci
+npm run format:check && \
+npm run lint && \
+npm run typecheck && \
+npm run build
 ```
 
 ## Branch Protection Rules
@@ -249,7 +249,7 @@ To enforce CI checks, configure branch protection on `main`:
 **Solution:**
 ```bash
 cd documentation
-bun run format
+npm run format
 git add .
 git commit -m "style: format code"
 ```
@@ -259,7 +259,7 @@ git commit -m "style: format code"
 **Solution:**
 ```bash
 cd documentation
-bun run lint:fix
+npm run lint:fix
 git add .
 git commit -m "style: fix linting issues"
 ```
@@ -271,7 +271,7 @@ git commit -m "style: fix linting issues"
 **Solution:**
 1. Review the error messages in the workflow logs
 2. Fix type issues in the source code
-3. Run `bun run typecheck` locally to verify
+3. Run `npm run typecheck` locally to verify
 4. Commit and push
 
 ### CI Fails: Build Documentation
@@ -280,9 +280,9 @@ git commit -m "style: fix linting issues"
 
 **Solution:**
 1. Check workflow logs for specific error
-2. Run `bun run build` locally to reproduce
+2. Run `npm run build` locally to reproduce
 3. Fix the issue (usually broken links or syntax errors)
-4. Verify with `bun run build` locally
+4. Verify with `npm run build` locally
 5. Commit and push
 
 ### CD Fails: Deployment
@@ -332,3 +332,5 @@ First run (without cache) may take 2-3x longer.
 - [DEPLOYMENT.md](DEPLOYMENT.md) - Deployment configuration guide
 - [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
+
+
