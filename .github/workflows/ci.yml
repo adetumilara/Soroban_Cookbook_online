@@ -46,10 +46,10 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Check formatting with Prettier
-        run: bun exec prettier --check "src/**/*.{ts,tsx,css,json,md}"
+        run: bun run format:check
 
       - name: Lint with ESLint
-        run: bun exec eslint src --ext .ts,.tsx --max-warnings 0
+        run: bun run lint
 
   typecheck:
     name: TypeScript Check
