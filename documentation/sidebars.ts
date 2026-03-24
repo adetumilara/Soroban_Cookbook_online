@@ -37,6 +37,16 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Design System',
+      items: [
+        'design-system/buttons',
+        'design-system/typography',
+        'design-system/badges-tags',
+        'design-system/empty-states',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Components',
       items: [
         'components/buttons',
