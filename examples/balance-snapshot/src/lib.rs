@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 //! Balance Snapshot — capture account balances at specific points in time for
 //! voting, dividends, and historical queries.
 //!
