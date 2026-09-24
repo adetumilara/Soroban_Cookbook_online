@@ -61,3 +61,7 @@ Tests verify:
 - Best suited for allowlists of up to a few hundred participants.
 - For larger allowlists, consider hashing the bitmap or using a Bloom filter
   pattern with configurable false-positive rates.
+
+## Origin
+
+This example is original to the Soroban Cookbook repository.
