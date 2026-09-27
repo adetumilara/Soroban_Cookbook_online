@@ -1,0 +1,27 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "chore/example-license-metadata",
+    "feature/create-main-readme",
+    "feature/dark-mode-buttons",
+    "feature/empty-state-patterns",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "chore/example-license-metadata": "main",
+    "feature/create-main-readme": "main",
+    "feature/dark-mode-buttons": "main",
+    "feature/empty-state-patterns": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "chore/example-license-metadata",
+    "feature/create-main-readme",
+    "feature/dark-mode-buttons",
+    "feature/empty-state-patterns",
+    "origin"
+  ]
+}
